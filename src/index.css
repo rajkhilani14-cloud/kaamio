@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+/* Custom premium styles */
+@theme {
+  --color-teal-50: #effcfb;
+  --color-teal-100: #d6f7f5;
+  --color-teal-200: #b1f0ed;
+  --color-teal-300: #7ce4e1;
+  --color-teal-400: #40d0ce;
+  --color-teal-500: #1fb5b3;
+  --color-teal-600: #159392;
+  --color-teal-700: #157576;
+  --color-teal-800: #165e60;
+  --color-teal-900: #174d4f;
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: 'Clash Display', 'Inter', system-ui, sans-serif;
+}
+
+/* Premium animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Premium hover effects */
+.hover-lift:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
