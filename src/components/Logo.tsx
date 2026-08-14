@@ -4,9 +4,10 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   withText?: boolean
   className?: string
+  tone?: 'dark' | 'light'
 }
 
-const Logo: React.FC<LogoProps> = ({ size = 'md', withText = true, className = '' }) => {
+const Logo: React.FC<LogoProps> = ({ size = 'md', withText = true, className = '', tone = 'dark' }) => {
   const sizeClasses = {
     sm: 'w-8 h-8',
     md: 'w-10 h-10',
@@ -29,7 +30,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'md', withText = true, className = '
         className={`${sizeClasses[size]} object-contain rounded-lg`}
       />
       {withText && (
-        <span className={`font-display font-bold text-gray-900 ${textSizes[size]}`}>
+        <span className={`font-display font-bold ${tone === 'light' ? 'text-white' : 'text-gray-900'} ${textSizes[size]}`}>
           Kaamio
         </span>
       )}
