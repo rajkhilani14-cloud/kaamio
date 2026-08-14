@@ -8,13 +8,11 @@ import {
   ChevronRight,
   Clock3,
   ConciergeBell,
-  Dumbbell,
   HeartHandshake,
   Home,
   MapPin,
   Menu,
   MessageCircle,
-  PartyPopper,
   Search,
   ShieldCheck,
   Sparkles,
@@ -31,77 +29,159 @@ interface Service {
   category: string
   description: string
   price: number
+  originalPrice: number
   duration: string
   rating: number
+  image: string
+  badge?: string
   icon: LucideIcon
   accent: string
 }
 
 const services: Service[] = [
   {
-    id: 'premium-cleaning',
-    name: 'Premium cleaning',
+    id: 'hourly-service',
+    name: 'Hourly Service',
     category: 'Home care',
-    description: 'A considered reset for the spaces you live in.',
-    price: 199,
-    duration: '3 hours',
+    description: 'Flexible help for the everyday tasks on your list.',
+    price: 299,
+    originalPrice: 399,
+    duration: 'per hour',
     rating: 4.9,
-    icon: Sparkles,
+    image: '/services/hourly-service.jpg',
+    badge: 'NEW',
+    icon: ConciergeBell,
     accent: 'bg-[#dff5ee] text-[#147b68]',
   },
   {
-    id: 'personal-chef',
-    name: 'Personal chef',
-    category: 'Food & hosting',
-    description: 'Thoughtful menus, prepared in your own kitchen.',
-    price: 299,
-    duration: '4 hours',
+    id: 'bathroom-cleaning',
+    name: 'Bathroom Cleaning',
+    category: 'Deep cleaning',
+    description: 'A detailed clean for fresher, brighter bathrooms.',
+    price: 349,
+    originalPrice: 499,
+    duration: 'up to 2 bathrooms',
+    rating: 4.9,
+    image: '/services/bathroom-cleaning.jpg',
+    icon: Sparkles,
+    accent: 'bg-[#e2eff9] text-[#32749f]',
+  },
+  {
+    id: 'sweeping-mopping',
+    name: 'Sweeping & Mopping',
+    category: 'Home care',
+    description: 'Everyday floors cleaned carefully from corner to corner.',
+    price: 249,
+    originalPrice: 349,
+    duration: 'up to 2 bedrooms',
+    rating: 4.9,
+    image: '/services/sweeping-mopping.jpg',
+    icon: Home,
+    accent: 'bg-[#e9f3dd] text-[#5c813d]',
+  },
+  {
+    id: 'fridge-cleaning',
+    name: 'Fridge Cleaning',
+    category: 'Kitchen care',
+    description: 'A hygienic inside-and-out refresh for your refrigerator.',
+    price: 449,
+    originalPrice: 599,
+    duration: '60–90 min',
     rating: 4.8,
+    image: '/services/fridge-cleaning.jpg',
+    icon: Sparkles,
+    accent: 'bg-[#e7e7fa] text-[#5c54ad]',
+  },
+  {
+    id: 'kitchen-prep',
+    name: 'Kitchen Prep',
+    category: 'Kitchen help',
+    description: 'Chopping, sorting, and prep that makes meals feel easier.',
+    price: 299,
+    originalPrice: 399,
+    duration: 'per hour',
+    rating: 4.9,
+    image: '/services/kitchen-prep.jpg',
     icon: Utensils,
     accent: 'bg-[#fff0d6] text-[#a66116]',
   },
   {
-    id: 'home-organizer',
-    name: 'Home organizing',
+    id: 'laundry',
+    name: 'Laundry',
     category: 'Home care',
-    description: 'Bring calm and clarity to the places that matter.',
-    price: 249,
-    duration: '3.5 hours',
-    rating: 4.7,
-    icon: Home,
-    accent: 'bg-[#e7e7fa] text-[#5c54ad]',
-  },
-  {
-    id: 'personal-trainer',
-    name: 'Personal training',
-    category: 'Wellbeing',
-    description: 'A personal plan that fits your pace and your day.',
-    price: 179,
-    duration: '1.5 hours',
-    rating: 4.9,
-    icon: Dumbbell,
-    accent: 'bg-[#fbe3e2] text-[#b34c4a]',
-  },
-  {
-    id: 'event-planner',
-    name: 'Event planning',
-    category: 'Events',
-    description: 'From first idea to final detail, beautifully handled.',
-    price: 499,
-    duration: 'Consultation',
+    description: 'Washing, drying, folding, and putting everything back in place.',
+    price: 299,
+    originalPrice: 449,
+    duration: 'up to 5 kg',
     rating: 4.8,
-    icon: PartyPopper,
+    image: '/services/laundry.jpg',
+    icon: Clock3,
+    accent: 'bg-[#dff5ee] text-[#147b68]',
+  },
+  {
+    id: 'kitchen-cleaning',
+    name: 'Kitchen Cleaning',
+    category: 'Deep cleaning',
+    description: 'Grease, spills, and build-up cleared from your kitchen surfaces.',
+    price: 399,
+    originalPrice: 549,
+    duration: 'up to 2 hours',
+    rating: 4.9,
+    image: '/services/kitchen-cleaning.jpg',
+    icon: Utensils,
+    accent: 'bg-[#fff0d6] text-[#a66116]',
+  },
+  {
+    id: 'fan-cleaning',
+    name: 'Fan Cleaning',
+    category: 'Home care',
+    description: 'Dust removed from ceiling fans for a cleaner, fresher room.',
+    price: 199,
+    originalPrice: 299,
+    duration: 'up to 3 fans',
+    rating: 4.8,
+    image: '/services/fan-cleaning.jpg',
+    icon: Sparkles,
     accent: 'bg-[#e2eff9] text-[#32749f]',
   },
   {
-    id: 'concierge',
-    name: 'Premium concierge',
-    category: 'Everyday help',
-    description: 'The thoughtful extra pair of hands your week needs.',
-    price: 399,
-    duration: 'Custom',
-    rating: 5.0,
-    icon: ConciergeBell,
+    id: 'plumbing',
+    name: 'Plumbing',
+    category: 'Repairs & fixes',
+    description: 'Reliable help for leaks, taps, drains, and everyday plumbing.',
+    price: 249,
+    originalPrice: 399,
+    duration: 'inspection visit',
+    rating: 4.8,
+    image: '/services/plumbing.jpg',
+    icon: ShieldCheck,
+    accent: 'bg-[#e7e7fa] text-[#5c54ad]',
+  },
+  {
+    id: 'home-repairing',
+    name: 'Home Repairing',
+    category: 'Repairs & fixes',
+    description: 'Skilled hands for the small repairs that keep home moving.',
+    price: 299,
+    originalPrice: 449,
+    duration: 'inspection visit',
+    rating: 4.8,
+    image: '/services/home-repairing.jpg',
+    icon: BriefcaseBusiness,
+    accent: 'bg-[#fbe3e2] text-[#b34c4a]',
+  },
+  {
+    id: 'installation',
+    name: 'Installation',
+    category: 'Setup & assembly',
+    description: 'Careful installation for fixtures, shelves, appliances, and more.',
+    price: 349,
+    originalPrice: 499,
+    duration: 'starting visit',
+    rating: 4.9,
+    image: '/services/installation.jpg',
+    badge: 'NEW',
+    icon: CheckCircle2,
     accent: 'bg-[#e9f3dd] text-[#5c813d]',
   },
 ]
@@ -269,7 +349,7 @@ function App() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-[#5b6b66]">
                 <span className="mr-1 font-medium text-[#172522]">Try</span>
-                {['Cleaning', 'Chef', 'Wellbeing', 'Concierge'].map((term) => (
+                {['Bathroom', 'Laundry', 'Plumbing', 'Installation'].map((term) => (
                   <button
                     type="button"
                     key={term}
@@ -342,16 +422,24 @@ function App() {
               const Icon = service.icon
               return (
                 <article key={service.id} className="service-card group">
-                  <div className="flex items-start justify-between gap-5">
-                    <div className={`service-icon ${service.accent}`}><Icon size={22} strokeWidth={1.8} aria-hidden="true" /></div>
-                    <span className="rating"><Star size={13} className="fill-[#e4a835] text-[#e4a835]" aria-hidden="true" /> {service.rating.toFixed(1)}</span>
+                  <div className="service-image-wrap">
+                    <img src={service.image} alt={`${service.name} service`} className="service-image" loading="lazy" />
+                    {service.badge && <span className="service-badge">{service.badge}</span>}
+                    <span className="rating service-rating"><Star size={13} className="fill-[#e4a835] text-[#e4a835]" aria-hidden="true" /> {service.rating.toFixed(1)}</span>
                   </div>
-                  <p className="service-category mt-8">{service.category}</p>
-                  <h3 className="service-title mt-2">{service.name}</h3>
-                  <p className="service-description mt-3">{service.description}</p>
-                  <div className="mt-7 flex items-end justify-between gap-4 border-t border-[#172522]/10 pt-5">
-                    <div><span className="service-from">From</span><strong className="service-price">${service.price}</strong><span className="service-duration"> / {service.duration}</span></div>
-                    <button type="button" onClick={() => handleServiceSelect(service)} className="circle-arrow" aria-label={`Book ${service.name}`}><ArrowUpRight size={18} aria-hidden="true" /></button>
+                  <div className="service-card-content">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="service-category">{service.category}</p>
+                        <h3 className="service-title mt-2">{service.name}</h3>
+                      </div>
+                      <div className={`service-icon service-icon-small ${service.accent}`}><Icon size={18} strokeWidth={1.8} aria-hidden="true" /></div>
+                    </div>
+                    <p className="service-description mt-3">{service.description}</p>
+                    <div className="mt-auto flex items-end justify-between gap-4 border-t border-[#172522]/10 pt-4">
+                      <div><span className="service-from">Starting at</span><strong className="service-price">₹{service.price}</strong><span className="service-old-price">₹{service.originalPrice}</span><span className="service-duration"> · {service.duration}</span></div>
+                      <button type="button" onClick={() => handleServiceSelect(service)} className="circle-arrow" aria-label={`Book ${service.name}`}><ArrowUpRight size={18} aria-hidden="true" /></button>
+                    </div>
                   </div>
                 </article>
               )
@@ -367,7 +455,7 @@ function App() {
           )}
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[#172522]/10 pt-6">
-            <p className="text-sm text-[#65736e]">Six ways to make space in your day. More thoughtful help, coming soon.</p>
+            <p className="text-sm text-[#65736e]">Eleven practical ways to make space in your day. More thoughtful help, coming soon.</p>
             <a href="#footer" className="text-link">Talk to our concierge <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
@@ -464,7 +552,7 @@ function App() {
             ) : bookingStep === 5 ? (
               <div className="modal-state"><div className="success-icon"><CheckCircle2 size={30} aria-hidden="true" /></div><h2 id="booking-title">You’re all set.</h2><p>Your request for {selectedService.name.toLowerCase()} is in motion. Our team will contact you shortly.</p><button type="button" onClick={closeBookingConfirmation} className="button button-dark mt-7 w-full">Done <Check size={16} aria-hidden="true" /></button></div>
             ) : (
-              <><div className="modal-kicker"><BriefcaseBusiness size={15} aria-hidden="true" /> Your Kaamio selection</div><h2 id="booking-title" className="mt-5 text-3xl font-semibold tracking-[-0.04em]">Ready to make room?</h2><p className="mt-3 text-sm leading-6 text-[#65736e]">You selected {selectedService.name.toLowerCase()}. Review the details and let us handle the next step.</p><div className="modal-service-card mt-7"><div className={`service-icon ${selectedService.accent}`}><selectedService.icon size={21} aria-hidden="true" /></div><div><strong>{selectedService.name}</strong><span>{selectedService.duration} · from ${selectedService.price}</span></div></div><div className="mt-7 grid grid-cols-2 gap-3"><button type="button" onClick={handleBookNow} className="button button-teal">Book this service <ArrowUpRight size={16} aria-hidden="true" /></button><button type="button" onClick={closeBookingConfirmation} className="button button-outline">Not yet</button></div></>
+              <><div className="modal-kicker"><BriefcaseBusiness size={15} aria-hidden="true" /> Your Kaamio selection</div><h2 id="booking-title" className="mt-5 text-3xl font-semibold tracking-[-0.04em]">Ready to make room?</h2><p className="mt-3 text-sm leading-6 text-[#65736e]">You selected {selectedService.name.toLowerCase()}. Review the details and let us handle the next step.</p><div className="modal-service-card mt-7"><img src={selectedService.image} alt="" className="modal-service-image" /><div className={`service-icon ${selectedService.accent}`}><selectedService.icon size={21} aria-hidden="true" /></div><div><strong>{selectedService.name}</strong><span>{selectedService.duration} · from ₹{selectedService.price} <del>₹{selectedService.originalPrice}</del></span></div></div><div className="mt-7 grid grid-cols-2 gap-3"><button type="button" onClick={handleBookNow} className="button button-teal">Book this service <ArrowUpRight size={16} aria-hidden="true" /></button><button type="button" onClick={closeBookingConfirmation} className="button button-outline">Not yet</button></div></>
             )}
           </div>
         </div>

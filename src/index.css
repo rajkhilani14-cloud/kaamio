@@ -470,46 +470,68 @@ input:focus-visible {
 
 .service-card {
   display: flex;
-  min-height: 355px;
+  min-height: 0;
   flex-direction: column;
-  border: 1px solid rgba(23, 37, 34, 0.12);
+  overflow: hidden;
+  border: 1px solid rgba(23, 37, 34, 0.1);
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.52);
-  padding: 1.35rem;
-  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(30, 56, 47, 0.035);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 .service-card:hover {
-  border-color: rgba(21, 157, 138, 0.38);
-  background: #fff;
-  box-shadow: 0 18px 32px rgba(30, 56, 47, 0.08);
+  border-color: rgba(21, 157, 138, 0.4);
+  box-shadow: 0 18px 32px rgba(30, 56, 47, 0.1);
   transform: translateY(-5px);
 }
 
-.service-icon {
-  display: grid;
-  width: 47px;
-  height: 47px;
-  place-items: center;
-  border-radius: 15px;
+.service-image-wrap {
+  position: relative;
+  aspect-ratio: 1.55 / 1;
+  overflow: hidden;
+  background: #edf2ef;
 }
 
-.rating {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.28rem;
-  color: #65736e;
-  font-size: 0.75rem;
-  font-weight: 700;
+.service-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 360ms ease;
 }
 
-.service-card > *:not(:first-child) { position: relative; }
-.service-category { color: #159d8a; font-size: 0.67rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
-.service-title { color: #172522; font-size: 1.55rem; font-weight: 600; letter-spacing: -0.04em; }
-.service-description { max-width: 260px; color: #65736e; font-size: 0.88rem; line-height: 1.55; }
-.service-from { display: block; color: #86918d; font-size: 0.7rem; }
-.service-price { color: #172522; font-size: 1.05rem; font-weight: 700; }
-.service-duration { color: #86918d; font-size: 0.72rem; }
+.service-card:hover .service-image { transform: scale(1.04); }
+.service-badge { position: absolute; top: 0.75rem; left: 0.75rem; border-radius: 999px; background: #f04444; padding: 0.34rem 0.58rem; color: #fff; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.04em; }
+.rating { display: inline-flex; align-items: center; gap: 0.28rem; color: #65736e; font-size: 0.75rem; font-weight: 700; }
+.service-rating { position: absolute; top: 0.75rem; right: 0.75rem; border-radius: 999px; background: rgba(255, 255, 255, 0.94); padding: 0.38rem 0.58rem; box-shadow: 0 4px 12px rgba(23, 37, 34, 0.08); }
+.service-card-content { display: flex; flex: 1; flex-direction: column; padding: 1.1rem 1.15rem 1.15rem; }
+.service-icon { display: grid; width: 47px; height: 47px; place-items: center; border-radius: 15px; }
+.service-icon-small { width: 36px; height: 36px; flex: 0 0 auto; border-radius: 12px; }
+.service-category { color: #159d8a; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.service-title { color: #172522; font-size: 1.22rem; font-weight: 650; letter-spacing: -0.035em; line-height: 1.15; }
+.service-description { max-width: 260px; color: #65736e; font-size: 0.82rem; line-height: 1.5; }
+.service-from { display: block; color: #86918d; font-size: 0.68rem; }
+.service-price { color: #172522; font-size: 1.08rem; font-weight: 800; }
+.service-old-price { margin-left: 0.42rem; color: #a6afab; font-size: 0.76rem; text-decoration: line-through; }
+.service-duration { color: #86918d; font-size: 0.7rem; }
+
+.modal-service-image { width: 54px; height: 54px; flex: 0 0 auto; border-radius: 13px; object-fit: cover; }
+
+.service-card:focus-within { border-color: #159d8a; box-shadow: 0 0 0 3px rgba(21, 157, 138, 0.18); }
+
+@media (max-width: 900px) {
+  .service-title { font-size: 1.12rem; }
+}
+
+@media (max-width: 640px) {
+  .service-card-content { padding: 1rem; }
+  .service-image-wrap { aspect-ratio: 1.45 / 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover .service-image { transform: none; }
+}
 
 .circle-arrow {
   display: grid;
@@ -616,6 +638,7 @@ input:focus-visible {
 .modal-service-card > div:last-child { display: grid; gap: 0.3rem; }
 .modal-service-card strong { font-size: 0.95rem; }
 .modal-service-card span { color: #74817c; font-size: 0.78rem; }
+.modal-service-card del { margin-left: 0.25rem; color: #a6afab; }
 .modal-state { display: grid; place-items: center; padding: 3.6rem 1.2rem 2.2rem; text-align: center; }
 .modal-state h2 { margin-top: 1.2rem; font-size: 1.8rem; font-weight: 600; letter-spacing: -0.04em; }
 .modal-state p { margin-top: 0.7rem; max-width: 330px; color: #65736e; font-size: 0.9rem; line-height: 1.6; }
