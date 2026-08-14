@@ -7,9 +7,7 @@ import {
   ChevronDown,
   ChevronRight,
   Clock3,
-  ConciergeBell,
   HeartHandshake,
-  Home,
   MapPin,
   Menu,
   MessageCircle,
@@ -17,7 +15,6 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Utensils,
   X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -40,149 +37,84 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 'hourly-service',
-    name: 'Hourly Service',
-    category: 'Home care',
-    description: 'Flexible help for the everyday tasks on your list.',
-    price: 299,
-    originalPrice: 399,
-    duration: 'per hour',
+    id: 'electricians',
+    name: 'Electricians',
+    category: 'Electrical repairs',
+    description: 'Safe, careful help for switches, wiring, lights, and power issues.',
+    price: 199,
+    originalPrice: 299,
+    duration: 'inspection visit',
     rating: 4.9,
-    image: '/services/hourly-service.jpg',
+    image: '/services/electrician.jpg',
     badge: 'NEW',
-    icon: ConciergeBell,
-    accent: 'bg-[#dff5ee] text-[#147b68]',
-  },
-  {
-    id: 'bathroom-cleaning',
-    name: 'Bathroom Cleaning',
-    category: 'Deep cleaning',
-    description: 'A detailed clean for fresher, brighter bathrooms.',
-    price: 349,
-    originalPrice: 499,
-    duration: 'up to 2 bathrooms',
-    rating: 4.9,
-    image: '/services/bathroom-cleaning.jpg',
     icon: Sparkles,
-    accent: 'bg-[#e2eff9] text-[#32749f]',
-  },
-  {
-    id: 'sweeping-mopping',
-    name: 'Sweeping & Mopping',
-    category: 'Home care',
-    description: 'Everyday floors cleaned carefully from corner to corner.',
-    price: 249,
-    originalPrice: 349,
-    duration: 'up to 2 bedrooms',
-    rating: 4.9,
-    image: '/services/sweeping-mopping.jpg',
-    icon: Home,
-    accent: 'bg-[#e9f3dd] text-[#5c813d]',
-  },
-  {
-    id: 'fridge-cleaning',
-    name: 'Fridge Cleaning',
-    category: 'Kitchen care',
-    description: 'A hygienic inside-and-out refresh for your refrigerator.',
-    price: 449,
-    originalPrice: 599,
-    duration: '60–90 min',
-    rating: 4.8,
-    image: '/services/fridge-cleaning.jpg',
-    icon: Sparkles,
-    accent: 'bg-[#e7e7fa] text-[#5c54ad]',
-  },
-  {
-    id: 'kitchen-prep',
-    name: 'Kitchen Prep',
-    category: 'Kitchen help',
-    description: 'Chopping, sorting, and prep that makes meals feel easier.',
-    price: 299,
-    originalPrice: 399,
-    duration: 'per hour',
-    rating: 4.9,
-    image: '/services/kitchen-prep.jpg',
-    icon: Utensils,
     accent: 'bg-[#fff0d6] text-[#a66116]',
   },
   {
-    id: 'laundry',
-    name: 'Laundry',
-    category: 'Home care',
-    description: 'Washing, drying, folding, and putting everything back in place.',
+    id: 'plumber',
+    name: 'Plumber',
+    category: 'Plumbing repairs',
+    description: 'Fast help for leaks, taps, blocked drains, and everyday pipework.',
+    price: 249,
+    originalPrice: 399,
+    duration: 'inspection visit',
+    rating: 4.8,
+    image: '/services/plumber.jpg',
+    icon: ShieldCheck,
+    accent: 'bg-[#e2eff9] text-[#32749f]',
+  },
+  {
+    id: 'carpenter',
+    name: 'Carpenter',
+    category: 'Furniture & fixtures',
+    description: 'Practical woodwork for doors, shelves, cabinets, and fittings.',
     price: 299,
     originalPrice: 449,
-    duration: 'up to 5 kg',
+    duration: 'starting visit',
+    rating: 4.9,
+    image: '/services/carpenter.jpg',
+    icon: BriefcaseBusiness,
+    accent: 'bg-[#e9f3dd] text-[#5c813d]',
+  },
+  {
+    id: 'ac-repair-service',
+    name: 'AC Repair & Service',
+    category: 'Cooling & appliances',
+    description: 'Reliable AC checks, cleaning, gas inspection, and repairs at home.',
+    price: 399,
+    originalPrice: 599,
+    duration: '60–90 min',
     rating: 4.8,
-    image: '/services/laundry.jpg',
+    image: '/services/ac-repair.jpg',
+    badge: 'NEW',
     icon: Clock3,
     accent: 'bg-[#dff5ee] text-[#147b68]',
   },
   {
-    id: 'kitchen-cleaning',
-    name: 'Kitchen Cleaning',
-    category: 'Deep cleaning',
-    description: 'Grease, spills, and build-up cleared from your kitchen surfaces.',
-    price: 399,
-    originalPrice: 549,
-    duration: 'up to 2 hours',
-    rating: 4.9,
-    image: '/services/kitchen-cleaning.jpg',
-    icon: Utensils,
-    accent: 'bg-[#fff0d6] text-[#a66116]',
-  },
-  {
-    id: 'fan-cleaning',
-    name: 'Fan Cleaning',
-    category: 'Home care',
-    description: 'Dust removed from ceiling fans for a cleaner, fresher room.',
-    price: 199,
-    originalPrice: 299,
-    duration: 'up to 3 fans',
+    id: 'ro-water-purifier-repair-service',
+    name: 'RO Water Purifier Repair & Service',
+    category: 'Water purifier care',
+    description: 'Keep your purifier working cleanly with filter checks and repairs.',
+    price: 349,
+    originalPrice: 499,
+    duration: 'starting visit',
     rating: 4.8,
-    image: '/services/fan-cleaning.jpg',
-    icon: Sparkles,
-    accent: 'bg-[#e2eff9] text-[#32749f]',
-  },
-  {
-    id: 'plumbing',
-    name: 'Plumbing',
-    category: 'Repairs & fixes',
-    description: 'Reliable help for leaks, taps, drains, and everyday plumbing.',
-    price: 249,
-    originalPrice: 399,
-    duration: 'inspection visit',
-    rating: 4.8,
-    image: '/services/plumbing.jpg',
-    icon: ShieldCheck,
+    image: '/services/ro-water-purifier.jpg',
+    icon: CheckCircle2,
     accent: 'bg-[#e7e7fa] text-[#5c54ad]',
   },
   {
-    id: 'home-repairing',
-    name: 'Home Repairing',
-    category: 'Repairs & fixes',
-    description: 'Skilled hands for the small repairs that keep home moving.',
+    id: 'appliance-repair',
+    name: 'Appliance Repair',
+    category: 'Home appliances',
+    description: 'Skilled diagnosis and repair for the appliances your home relies on.',
     price: 299,
     originalPrice: 449,
     duration: 'inspection visit',
     rating: 4.8,
-    image: '/services/home-repairing.jpg',
-    icon: BriefcaseBusiness,
+    image: '/services/appliance-repair.jpg',
+    icon: Sparkles,
     accent: 'bg-[#fbe3e2] text-[#b34c4a]',
-  },
-  {
-    id: 'installation',
-    name: 'Installation',
-    category: 'Setup & assembly',
-    description: 'Careful installation for fixtures, shelves, appliances, and more.',
-    price: 349,
-    originalPrice: 499,
-    duration: 'starting visit',
-    rating: 4.9,
-    image: '/services/installation.jpg',
-    badge: 'NEW',
-    icon: CheckCircle2,
-    accent: 'bg-[#e9f3dd] text-[#5c813d]',
   },
 ]
 
@@ -324,12 +256,12 @@ function App() {
         <section className="hero-section mx-auto max-w-[1440px] px-5 pb-16 pt-12 sm:px-8 sm:pt-16 lg:px-10 lg:pb-24 lg:pt-20">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.03fr)_minmax(400px,0.97fr)] lg:gap-20">
             <div className="hero-copy">
-              <div className="eyebrow"><span className="eyebrow-dot" /> Premium help, thoughtfully arranged</div>
+              <div className="eyebrow"><span className="eyebrow-dot" /> Trusted help, right when home needs it</div>
               <h1 className="hero-title mt-7 max-w-3xl">
-                Make room for the <span className="hero-title-accent">good stuff.</span>
+                Home repair <span className="hero-title-accent">in minutes.</span>
               </h1>
               <p className="hero-description mt-7 max-w-xl">
-                Kaamio brings trusted people and premium everyday services together, so your time can feel like yours again.
+                Kaamio connects you with trusted repair professionals for the fixes that keep your home moving.
               </p>
 
               <form onSubmit={handleSearch} className="hero-search mt-9 max-w-2xl" role="search">
@@ -349,7 +281,7 @@ function App() {
 
               <div className="mt-5 flex flex-wrap items-center gap-2 text-sm text-[#5b6b66]">
                 <span className="mr-1 font-medium text-[#172522]">Try</span>
-                {['Bathroom', 'Laundry', 'Plumbing', 'Installation'].map((term) => (
+                {['Electrician', 'AC repair', 'Plumber', 'RO service'].map((term) => (
                   <button
                     type="button"
                     key={term}
@@ -385,12 +317,11 @@ function App() {
                 <span>FIND IT. BOOK IT. DONE.</span>
               </div>
               <div className="hero-art-center">
-                <div className="hero-orbit hero-orbit-one" />
-                <div className="hero-orbit hero-orbit-two" />
-                <div className="hero-logo-frame">
-                  <Logo size="xl" withText={false} className="justify-center" tone="light" />
-                </div>
-                <p className="hero-art-note">A little more time<br />for what matters.</p>
+                <img
+                  src="/hero-home-repair.jpeg"
+                  alt="Kaamio home repair professional ready to help"
+                  className="hero-art-image"
+                />
               </div>
               <div className="hero-art-bottomline">
                 <span>PREMIUM SERVICES</span>
@@ -455,7 +386,7 @@ function App() {
           )}
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[#172522]/10 pt-6">
-            <p className="text-sm text-[#65736e]">Eleven practical ways to make space in your day. More thoughtful help, coming soon.</p>
+            <p className="text-sm text-[#65736e]">Six practical repair services to keep your home moving. More thoughtful help, coming soon.</p>
             <a href="#footer" className="text-link">Talk to our concierge <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
         </section>
@@ -534,7 +465,7 @@ function App() {
       <footer id="footer" className="footer-section bg-[#172522] text-[#f6f7f3]">
         <div className="mx-auto max-w-[1320px] px-5 py-14 sm:px-8 lg:px-10 lg:py-16">
           <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-            <div><Logo size="md" withText tone="light" /><p className="mt-6 max-w-xs text-sm leading-6 text-white/55">Premium services, minimal effort. Make room for the good stuff.</p><a className="footer-contact mt-6" href="mailto:hello@kaamio.com">hello@kaamio.com <ArrowUpRight size={15} aria-hidden="true" /></a></div>
+            <div><Logo size="md" withText tone="light" /><p className="mt-6 max-w-xs text-sm leading-6 text-white/55">Premium home repairs, minimal effort. FIND IT. BOOK IT. DONE.</p><a className="footer-contact mt-6" href="mailto:hello@kaamio.com">hello@kaamio.com <ArrowUpRight size={15} aria-hidden="true" /></a></div>
             <div><p className="footer-heading">Explore</p><div className="footer-links"><a href="#services">Services</a><a href="#how-it-works">How it works</a><a href="#stories">Member stories</a></div></div>
             <div><p className="footer-heading">Kaamio</p><div className="footer-links"><a href="#faq">FAQ</a><a href="mailto:hello@kaamio.com">Contact us</a><a href="#top">Back to top</a></div></div>
             <div><p className="footer-heading">A little reminder</p><p className="footer-slogan">FIND IT.<br />BOOK IT.<br /><span>DONE.</span></p></div>
